@@ -96,6 +96,25 @@ function loadFromStorage() {
   }
 }
 
-loadFromStorage();
-renderApplications();
-updateStats();
+function loadFromExtension() {
+  if (typeof chrome !== 'undefined' && chrome.storage) {
+    chrome.storage.local.get(['jobApplications'], function(result) {
+      if (result.jobApplications && result.jobApplications.length > 0) {
+        applications = result.jobApplications;
+        saveToStorage();
+        renderApplications();
+        updateStats();
+      } else {
+        loadFromStorage();
+        renderApplications();
+        updateStats();
+      }
+    });
+  } else {
+    loadFromStorage();
+    renderApplications();
+    updateStats();
+  }
+}
+
+loadFromExtension();
