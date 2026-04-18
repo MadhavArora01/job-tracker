@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="navbar">
+    <h1 class="logo">JobTracker</h1>
+    <p class="tagline">Track every application. Miss nothing.</p>
+  </div>
+
+  <div class="container">
+
+    <div class="stats-bar">
+      <div class="stat-box">
+        <span class="stat-number" id="total-count">0</span>
+        <span class="stat-label">Total Applied</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-number" id="interview-count">0</span>
+        <span class="stat-label">In Interview</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-number" id="offer-count">0</span>
+        <span class="stat-label">Offers</span>
+      </div>
+    </div>
+
+    <div class="add-section">
+      <h2>Add New Application</h2>
+      <div class="form-row">
+        <input type="text" id="job-title" placeholder="Job title e.g. Marketing Intern" />
+        <input type="text" id="company" placeholder="Company name e.g. Google" />
+        <input type="text" id="location" placeholder="Location e.g. London" />
+        <select id="status">
+          <option value="Applied">Applied</option>
+          <option value="Screening">Screening</option>
+          <option value="Interview">Interview</option>
+          <option value="Final Stage">Final Stage</option>
+          <option value="Offer">Offer</option>
+          <option value="Rejected">Rejected</option>
+        </select>
+        <button onclick="addApplication()">+ Add</button>
+      </div>
+    </div>
+
+    <div class="applications-section">
+      <h2>My Applications</h2>
+      <div id="applications-list">
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
